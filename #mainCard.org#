@@ -1,0 +1,157 @@
+#+Title 一个用来组织 和 选择活动的 web  app
+* DONE 选择活动部分
+CLOSED: [2020-11-22 日 13:05]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-22 日 13:05]
+:END:
+1. [X] 初等部分
+   1. [X] html
+   2. [X] model
+   3. [X] view
+   4. [X] url
+2. [X] 测试一下子
+3. [X] 详细部分
+   1. [X] model:内容
+   2. [X] html
+      1. [X] 一个里面是 不断 循环的 小方框 小方框是 文本
+   3. [X] view
+      #+BEGIN_SRC
+def HomeCV(request):
+    #img path: path1 path2
+    path3=ImageSt.objects.all()
+    path1='img/'
+    path4='1.png'
+    for pathW in path3:
+        pathW.storepa ='img/'+pathW.storepa+'/1.jpg'
+    return render(request, 'comic/HomeC.html',{"columns":path3,"path1":path1})
+
+      #+END_SRC
+** DONE 一开始 是图片
+CLOSED: [2020-11-21 六 10:19]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-21 六 10:19]
+:END:
+1. [ ] 魔法牌的背景
+2. [ ] 一开始是图片
+** DONE 点击后 变成了 文本
+CLOSED: [2020-11-22 日 10:55]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-22 日 10:55]
+:END:
+1. [X] html
+   1. [X] 渲染画面
+   2. [X] 点击效果
+2. [X] 使用ajax
+   1. [X] 找一找先前那个案例
+   2. [X] 抄袭
+   3. [X] 修改
+      1. [X] 点击时
+         1. [X] 获取data
+            1. [X] 获取id=photo的 alt值  是id值  用来进行数据的反馈的 区分的
+               1. [X] 在w3school上进行测试
+         2. [X] 返回data
+         3. [X] 点击效果
+      2. [X] 点击对应
+      3. [X] 点击后的反应
+   4. [X] 测试
+   5. [X] 处理错误的效果:是在3 之后 出错的
+      1. [X] 找到问题 找到了 没有区别性 全给重复了
+      2. [X] 修改一下ajax:现在是简单的 id不对应 没有什么反应的结果  是网址对应的不对
+3. [X] 文本格式;找一个 html测试一下子
+4. [X] 点击后 将局部渲染为
+
+** DONE 选择问题部分
+CLOSED: [2020-11-22 日 11:38]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-22 日 11:38]
+:END:
+1. [X] 把问题 部分的功能做出来
+   1. [X] model
+   2. [X] view
+   3. [X] html
+   4. [X] url
+2. [X] 点击 显示问题
+
+** DONE 链接的制作
+CLOSED: [2020-11-22 日 13:05]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-22 日 13:05]
+:END:
+为空 则不显示 否则 将其替换为对应的内容
+1. [ ] 搞清楚 链接到谁?
+2. [ ] 使用绝对链接  进行链接  src=绝对连接
+3. [ ] 处理链接 是否显示
+4. [ ]
+
+
+
+*** DONE 跳转失败的问题
+CLOSED: [2020-11-22 日 13:05]
+:LOGBOOK:
+- State "DONE"       from "TODO"       [2020-11-22 日 13:05]
+:END:
+
+**** USELESS [[https://www.cnblogs.com/zhanghaoliang/p/6612174.html][使用stop函数]]
+CLOSED: [2020-11-22 日 12:54]
+:LOGBOOK:
+- State "USELESS"    from "TODO"       [2020-11-22 日 12:54] \\
+  不管用
+:END:
+
+**** USELESS 在w3上测试
+CLOSED: [2020-11-22 日 12:54]
+:LOGBOOK:
+- State "USELESS"    from "TODO"       [2020-11-22 日 12:54] \\
+  在w3school上能用 但是在自己 这里 就不行 ...
+:END:
+
+**** USEFULL 按照区域进行测试
+CLOSED: [2020-11-22 日 13:05]
+:LOGBOOK:
+- State "USEFULL"    from "TODO"       [2020-11-22 日 13:05] \\
+  终于起到了 作用 虽然 现在的ui还是依旧 非常难看
+:END:
+1. 在 home上的 是能够使用的
+2. 在 shtext上呢 就不能够使用
+3. [ ] 使用 跳转的函数怎么样
+   #+BEGIN_SRC
+这个是可以的内容的 源代码
+<a id="link" onclick="window.location.assign('https://www.baidu.com')" href="http://127.0.0.1:8000/chpro/questions">点击跳转</a>
+
+
+   #+END_SRC
+4. [ ] js  添加跳转的函数
+
+* TODO 上传
+* TODO 优化ui的内容
+1. [ ] 添加几个内容
+2. [ ] 卡牌居中
+3. [ ] 文本的显示
+   1. [ ] 文字
+   2. [ ] 跳转的链接
+
+* TODO 添加 内容
+
+** TODO 批量添加内容的方法
+** TODO :问题部分
+1. [ ] 36
+2. [ ] 常见相亲问题
+3. [ ] 其他问题
+4. [ ] 知乎上搜索一些问题
+** TODO :home部分
+
+*** TODO 知乎
+
+**** TODO 女生 男友
+
+**** TODO 让人感觉温暖
+
+*** TODO 百度
+
+*** TODO 自己思考
+
+*** TODO 婚姻关系  弥补的
+
+*** TODO 亲密关系 书里的
+
+* TODO 添加随机的功能

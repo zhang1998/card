@@ -1,0 +1,15 @@
+<div name="单一的内容返回" height="400" width="200">
+
+  <h1>{{column.title}}</h1>
+  <h4>{{column.content}}</h4>
+  {% if column.haveurl == 1 %}
+
+  <a id="link" onclick="window.location.assign('{{column.url}}')" href="{{column.url}}">点击跳转</a>
+
+  {% endif %}
+
+
+
+</div>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

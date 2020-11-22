@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% load cache %}
+{% block header %}
+
+<title>homepage </title>
+
+<meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+<meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="{{ SITE_NAME }}"/>
+<meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+<meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+<meta property="og:site_name" content="{{ SITE_NAME }}"/>
+
+{% endblock %}
+{% block content %}
+<style>
+  lie {
+    list-style: none;
+    float: left;
+    width: 20%;/*三列图片排列*/
+}
+  m1
+  {
+      font-family:"Times New Roman";
+      font-size:100px;
+      writing-mode : tb-rl ;
+      position:absolute;
+      z-index:2;
+      left:40%; top:10px
+  }
+
+</style>
+
+<div class="container">
+  <link rel="stylesheet" href="{% static 'comic/css/mansory-style.css' %}" type="text/css" />
+
+  <div id="my-gallery-container">
+    {% for column in columns %}
+    <lie>
+      <dive class="in-anishe-text" name="addImage" id="{{column.id}}" >
+
+        <img alt="{{column.text}}"  class="lazy" style="display: block;" src="{% static 'img/card1.jpeg' %}"  class="img-circle" id="photo" name="user_face" height="400" width="200">
+
+
+
+
+
+      </dive>
+    </lie>
+    {% endfor %}
+  </div>
+</div>
+<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script>
+
+  $(document).ready(function(){
+    $.ajaxSetup({
+      data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+    });
+
+
+
+    $("dive").click(function () {
+      var textId=$(this).attr('id');
+
+      $.ajax({
+        type:"POST",
+        data: {'input':textId},
+        url: "{% url 'ChPro:returnText' %}", //后台处理函数的url
+        cache: false,
+        dataType: "html",
+        success: function(result){
+          document.getElementById(textId).innerHTML=result;
+          console.log(result)
+
+
+        },
+        error: function(){
+          alert("false");
+        }
+      });
+
+        return false;
+    });
+
+  });
+
+
+
+</script>
+{% endblock %}

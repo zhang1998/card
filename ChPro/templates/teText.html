@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% load cache %}
+{% block header %}
+
+<title>homepage </title>
+
+<meta name="description" content="{{ SITE_SEO_DESCRIPTION }}"/>
+<meta name="keywords" content="{{ SITE_KEYWORDS }}"/>
+<meta property="og:type" content="blog"/>
+<meta property="og:title" content="{{ SITE_NAME }}"/>
+<meta property="og:description" content="{{ SITE_DESCRIPTION }}"/>
+<meta property="og:url" content="{{ SITE_BASE_URL }}"/>
+<meta property="og:site_name" content="{{ SITE_NAME }}"/>
+
+{% endblock %}
+{% block content %}
+<style>
+  lie {
+    list-style: none;
+    float: left;
+    width: 20%;/*三列图片排列*/
+}
+  m1
+  {
+      font-family:"Times New Roman";
+      font-size:100px;
+      writing-mode : tb-rl ;
+      position:absolute;
+      z-index:2;
+      left:40%; top:10px
+  }
+
+</style>
+
+<div class="container">
+  <link rel="stylesheet" href="{% static 'comic/css/mansory-style.css' %}" type="text/css" />
+
+  <div id="my-gallery-container">
+  <lie>
+    <div class="in-anishe-text" height="400" width="200">
+
+      <h1>{{column.title}}</h1>
+      <h4>{{column.content}}</h4>
+
+
+
+    </div>
+  </lie>
+</div>
+</div>
+
+<script src='{% static "comic/js/jquery.js" %}'></script>
+<script src="{% static 'comic/js/mp.mansory.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'comic/js/layer.js'%}"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function ( $ ) {
+        $("#my-gallery-container").mpmansory(
+            {
+                childrenClass: 'falls_item', // default is a div
+                columnClasses: 'falls_padding', //add classes to items
+                breakpoints:{
+                    lg: 3,
+                    md: 4,
+                    sm: 6,
+                    xs: 12
+                },
+                distributeBy: { order: false, height: false, attr: 'data-order', attrOrder: 'desc' }, //default distribute by order, options => order: true/false, height: true/false, attr => 'data-order', attrOrder=> 'asc'/'desc'
+            }
+        );
+    });
+</script>
+{% endblock %}
